@@ -35,3 +35,9 @@ Can change weapon?,No (Linked for life),Yes (Can swap pointers)
 
 {} define a Local Scope (also called a block scope).
 used in main.cpp to control the lifetime of the objects created inside them
+
+ex04
+Since filename is a std::string, we call .c_str() to convert it
+to const char* becuase the std::ifstream constructor only accepts a const char*
+
+If it doesn't find it (npos), the loop stops.
