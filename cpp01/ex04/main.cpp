@@ -2,33 +2,21 @@
 #include <string>
 #include <fstream>
 
-int main(int argc, char **argv) {
-    if (argc != 4) {
-        std::cerr << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
-        return 1;
-    }
-
-    std::string filename = argv[1];
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
-
-    if (s1.empty()) {
-        std::cerr << "Error: The string to find (s1) cannot be empty." << std::endl;
-        return 1;
-    }
+void replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2) {
 
     std::ifstream inputFile(filename.c_str());
     if (!inputFile.is_open()) {
         std::cerr << "Error: Could not open file " << filename << std::endl;
-        return 1;
+        return;
     }
 
     std::ofstream outputFile((filename + ".replace").c_str());
     if (!outputFile.is_open()) {
         std::cerr << "Error: Could not create replace file." << std::endl;
-        return 1;
+        inputFile.close();
+        return;
     }
-    
+
     std::string content;
     std::string line;
     while (std::getline(inputFile, line)) {
@@ -48,9 +36,26 @@ int main(int argc, char **argv) {
     result.append(content, lastPos, std::string::npos);
 
     outputFile << result;
-
     inputFile.close();
     outputFile.close();
+}
+
+int main(int argc, char **argv) {
+    if (argc != 4) {
+        std::cerr << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
+        return 1;
+    }
+
+    std::string filename = argv[1];
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+
+    if (s1.empty()) {
+        std::cerr << "Error: The string to find (s1) cannot be empty." << std::endl;
+        return 1;
+    }
+
+    replaceInFile(filename, s1, s2);
 
     return 0;
 }

@@ -41,3 +41,8 @@ Since filename is a std::string, we call .c_str() to convert it
 to const char* becuase the std::ifstream constructor only accepts a const char*
 
 If it doesn't find it (npos), the loop stops.
+
+ex05
+// 1. Array of the level strings
+// 2. Array of pointers to the private member functions
+// 3. Loop and match
