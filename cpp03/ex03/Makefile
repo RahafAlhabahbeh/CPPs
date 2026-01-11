@@ -1,10 +1,10 @@
-NAME     = a.out
+NAME     = diamondtrap
 CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 OBJ_DIR  = objs
 
-SRC      = main.cpp  ScavTrap.cpp ClapTrap.cpp
+SRC      = main.cpp  ScavTrap.cpp DiamondTrap.cpp FragTrap.cpp ClapTrap.cpp
 OBJ      = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 all: $(NAME)
