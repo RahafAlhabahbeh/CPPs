@@ -5,10 +5,9 @@
 #include "WrongCat.hpp"
 
 int main() {
-    // Test basic functionality
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    delete j; // should not create a leak
+    delete j;
     delete i;
 
     std::cout << std::endl << "Testing array of animals:" << std::endl;
@@ -30,7 +29,7 @@ int main() {
     std::cout << std::endl << "Testing deep copy:" << std::endl;
     Dog dog1;
     dog1.getBrain()->setIdea(0, "Chase the ball");
-    Dog dog2 = dog1; // copy constructor
+    Dog dog2 = dog1;
     dog2.getBrain()->setIdea(0, "Eat the ball");
 
     std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
@@ -39,7 +38,7 @@ int main() {
     Cat cat1;
     cat1.getBrain()->setIdea(0, "Sleep on keyboard");
     Cat cat2;
-    cat2 = cat1; // assignment operator
+    cat2 = cat1;
     cat2.getBrain()->setIdea(0, "Knock over glass");
 
     std::cout << "Cat1 idea: " << cat1.getBrain()->getIdea(0) << std::endl;

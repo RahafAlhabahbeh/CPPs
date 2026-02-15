@@ -38,7 +38,7 @@ int main() {
     Cat cat1;
     cat1.getBrain()->setIdea(0, "Sleep on keyboard");
     Cat cat2;
-    cat2 = cat1; // assignment operator
+    cat2 = cat1;
     cat2.getBrain()->setIdea(0, "Knock over glass");
 
     std::cout << "Cat1 idea: " << cat1.getBrain()->getIdea(0) << std::endl;
